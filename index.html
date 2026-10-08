@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Chronicles of Hogwarts — Лист персонажа</title>
+<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Metamorphous&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#5b4b1c;--line:#a99d78;--band:#b6aa80;--band2:#8d8156;--btxt:#fff;--green:#3f6b3a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8dcae;--line:#8f845f;--band:#7d7350;--band2:#5f5638;--btxt:#fff}}
+:root[data-theme="dark"]{--ink:#e8dcae;--line:#8f845f;--band:#7d7350;--band2:#5f5638;--btxt:#fff}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:transparent;color:var(--ink);font-family:'Fira Sans',Arial,sans-serif;font-size:14px}
+.sheet{max-width:1100px;margin:0 auto;padding:12px}
+h1{font:400 clamp(28px,6vw,60px) 'Metamorphous',Georgia,serif;text-align:center;margin:4px 0 10px;letter-spacing:1px}
+.h{font-family:'Ruslan Display',Georgia,serif;font-weight:400}
+.box{border:2px dashed var(--ink);border-radius:6px;padding:8px 10px}
+.row{display:flex;align-items:baseline;gap:8px;margin:5px 0}
+.row label{font-family:'Ruslan Display',Georgia,serif;font-size:20px;white-space:nowrap}
+input,textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px solid var(--line);outline:0;width:100%;min-width:0;padding:2px 3px}
+input:focus,textarea:focus{background:rgba(169,157,120,.18)}
+.top{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rib{display:flex;flex-direction:column;align-items:center;gap:4px}
+.rib span{font:20px 'Ruslan Display',serif}
+.rib input{background:var(--band);border:0;border-radius:4px;text-align:center;color:var(--btxt);height:34px;font-weight:600}
+.year{width:60px!important;height:60px;border:2px solid var(--line)!important;border-radius:50%;text-align:center;background:transparent!important;color:var(--ink)!important}
+.portrait textarea{height:100%;min-height:190px;border:2px dashed var(--ink);border-radius:6px;resize:none}
+.band{height:12px;margin:12px 0;background:repeating-linear-gradient(90deg,var(--band) 0 40px,var(--band2) 40px 80px)}
+.stats{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:14px}
+.st{display:flex;align-items:center;gap:6px;margin:6px 0}
+.st b{flex:1;background:linear-gradient(90deg,var(--band),var(--band2));color:var(--btxt);font:400 24px 'Ruslan Display',serif;padding:6px 12px;border-radius:3px}
+.st input{width:50px;height:50px;text-align:center;font-size:18px;font-weight:600;border:2px solid var(--ink);border-radius:12px;padding:0}
+.col h2{font:400 28px 'Ruslan Display',serif;margin:0 0 4px}
+.col .row label{font:600 13px 'Fira Sans',sans-serif;text-transform:uppercase}
+h2.c{text-align:center;font:400 34px 'Ruslan Display',serif;margin:6px 0}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:0 26px}
+.sk{display:flex;align-items:center;gap:4px;height:32px}
+.sk label{font-weight:500;white-space:nowrap;font-size:13px}
+.ctr{display:flex;align-items:center;gap:2px;flex:none;border:2px solid var(--ink);border-radius:6px 6px 2px 2px;padding:0 2px}
+.ctr button{border:0;background:none;color:var(--ink);font:600 16px/1 inherit;cursor:pointer;width:20px;height:24px;padding:0}
+.ctr button:hover{background:rgba(169,157,120,.3)}
+.ctr b{min-width:24px;text-align:center;font-size:14px}
+.note{font-size:12px;font-weight:500;margin:6px 0}
+.bot{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.hp{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;text-align:center;margin:6px 0}
+.hp small{display:block;font-size:11px;font-weight:600;border:2px solid var(--line);margin:0 auto;padding:1px 2px;max-width:100px}
+.hp em{font-style:normal;font-size:18px;font-family:'Ruslan Display',serif}
+.tri{background:none;border:0;cursor:pointer;display:block;margin:0 auto;padding:0}
+.tri svg{width:76px;height:72px}
+.tri .tk{display:none}.tri.on .tk{display:block}
+.lab{text-align:center;font-weight:600;font-size:13px;letter-spacing:.5px}
+.cauldron{width:100%;max-width:300px;display:block;margin:0 auto}
+#st{font-size:11px;opacity:.7;text-align:right}
+@media(max-width:820px){.top,.mid,.stats,.bot{grid-template-columns:1fr}.skills{grid-template-columns:1fr}.hp{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="sheet">
+<h1>The Chronicles of Hogwarts</h1>
+<div class="top">
+ <div>
+  <div class="box"><div class="row"><label>Имя:</label><input data-k="name"></div></div>
+  <div class="mid" style="grid-template-columns:1.6fr 1fr;margin-top:10px">
+   <div>
+    <div class="box"><div class="row"><label>Происхождение:</label><input data-k="origin"></div></div>
+    <div class="box" style="margin-top:8px">
+     <div class="row"><label>Предыстория:</label><input data-k="bio1"></div>
+     <div class="row"><input data-k="bio2"></div>
+     <div class="row"><label>Убеждения:</label><input data-k="bel1"></div>
+     <div class="row"><input data-k="bel2"></div>
+     <div class="row"><label>Цели:</label><input data-k="goal"></div>
+    </div>
+   </div>
+   <div class="rib"><span>школа</span><input data-k="school"><span>год</span><input class="year" data-k="year"><span>факультет</span><input data-k="house"></div>
+  </div>
+ </div>
+ <div class="portrait"><textarea data-k="portrait" placeholder="Портрет / заметки"></textarea></div>
+</div>
+<div class="band"></div>
+<div class="stats">
+ <div id="attrs"></div>
+ <div class="col"><h2>Палочка:</h2>
+  <div class="row"><label>Древесина</label><input data-k="w1"></div>
+  <div class="row"><label>Длина</label><input data-k="w2"></div>
+  <div class="row"><label>Сердцевина</label><input data-k="w3"></div>
+  <div class="row"><label>Гибкость</label><input data-k="w4"></div>
+  <div class="row"><label>Твёрдость</label><input data-k="w5"></div>
+  <div class="row"><label>Бонусы</label><input data-k="w6"></div>
+ </div>
+ <div class="col"><h2>Фамильяр:</h2>
+  <div class="row"><input data-k="f1"></div><div class="row"><input data-k="f2"></div>
+  <h2 style="margin-top:14px">Артефакты:</h2>
+  <div class="row"><input data-k="a1"></div><div class="row"><input data-k="a2"></div><div class="row"><input data-k="a3"></div><div class="row"><input data-k="a4"></div>
+ </div>
+</div>
+<div class="band"></div>
+<h2 class="c">Навыки:</h2>
+<div class="skills" id="skills"></div>
+<div class="note">*Дошкольные навыки &nbsp; **Дошкольные навыки только для чистокровных и полукровок &nbsp; ***Дошкольные навыки только для чистокровных</div>
+<div class="band"></div>
+<div class="bot">
+ <div>
+  <h2 class="c">Здоровье</h2>
+  <div class="lab">ФИЗИЧЕСКИЕ СОСТОЯНИЯ:</div>
+  <div class="hp" id="phys"></div>
+  <div class="hp" id="psy"></div>
+  <div class="lab">ПСИХИЧЕСКИЕ СОСТОЯНИЯ:</div>
+ </div>
+ <div>
+  <h2 class="c">Сюжетные баллы</h2>
+  <svg class="cauldron" viewBox="0 0 300 260" fill="none"><path d="M10 120 L60 140 L30 170 L70 175Z M290 120 L240 140 L270 170 L230 175Z" fill="var(--band2)"/><path d="M60 80 Q150 -20 240 80 Z" fill="var(--band)"/><ellipse cx="150" cy="95" rx="95" ry="14" fill="var(--band2)"/><path d="M55 100 Q40 200 95 235 L205 235 Q260 200 245 100Z" fill="var(--band)"/><circle cx="150" cy="170" r="52" fill="none" stroke="var(--ink)" stroke-opacity=".0"/><circle cx="105" cy="45" r="7" stroke="var(--btxt)" stroke-width="2"/><circle cx="195" cy="38" r="5" stroke="var(--btxt)" stroke-width="2"/></svg>
+ </div>
+</div>
+<div id="st"></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const attrs=['Живучесть','Скорость','Сообразительность','Знания','Сосредоточенность'];
+$('#attrs').innerHTML=attrs.map((a,i)=>`<div class="st"><b>${a}</b><input data-k="at${i}"></div>`).join('');
+const cols=[
+['Алхимия','Артефакторика','Архивариус','Астрономия*','Баланс*','Верховая езда*','Взаимопонимание*','Дуэль','Защита от тёмных искусств','Зельеварение','Знание волшебных палочек','Изучение древних рун','Искусство*','Исследование древности',''],
+['История магии','Исцеление','Любопытные факты*','Магловедение','Маскировка','Музыка*','Наблюдательность*','Нумерология','Окклюменция','Полёт на метле**','Полномочия','Право','Прорицание','Ремесло*',''],
+['Репутация***','Скрытность*','Слежение','Сокрытие*','Стратегия*','Схватка','Телепортация','Тёмные искусства','Теория магии','Травология','Трансфигурация','Уход за магическими существами','Хитрость*','Чары','']];
+$('#skills').innerHTML=cols.map((c,ci)=>'<div>'+c.map((n,i)=>{const k=`s${ci}_${i}`;
+ const nm=n?`<label>${n}</label>`:'';
+ const txt=n?`<input data-k="${k}t" aria-label="${n}">`:`<input data-k="${k}n" aria-label="Свой навык">`;
+ return `<div class="sk">${nm}${txt}<span class="ctr"><button data-d="-1" data-t="${k}">−</button><b data-k="${k}" data-num>0</b><button data-d="1" data-t="${k}">+</button></span></div>`}).join('')+'</div>').join('');
+const tri=(k,l)=>`<div><button class="tri" data-k="${k}" aria-label="${l}"><svg viewBox="0 0 76 72" fill="none" stroke="var(--ink)" stroke-width="2.5"><path d="M38 3 L73 68 H3Z"/><path d="M38 3 V45"/><circle cx="38" cy="47" r="19"/><path class="tk" d="M27 47 L35 56 L51 36" stroke-width="5" stroke="var(--green)" stroke-linecap="round" stroke-linejoin="round"/></svg></button><small>${l}</small>`;
+const P=[['ПОТРЕПАН','+1'],['УШИБЛЕН','+2'],['ОКРОВАВЛЕН','+3'],['СЛОМЛЕН','+5'],['ОБЕССИЛЕН','+7'],['БЕЗДЫХАНЕН','X']];
+const Q=['ВСТРЕВОЖЕН','РАСТЕРЯН','ИСТОЩЁН','ЗАМЕШАТЕЛЬСТВО','БРЕДИТ','БЕЗУМЕН'];
+$('#phys').innerHTML=P.map((p,i)=>tri('p'+i,p[0])+`<em>${p[1]}</em></div>`).join('');
+$('#psy').innerHTML=Q.map((q,i)=>tri('q'+i,q)+'</div>').join('');
+
+const S={};let doc=null,pend={},tm;
+function status(t){$('#st').textContent=t||''}
+function render(){document.querySelectorAll('[data-k]').forEach(el=>{const v=S[el.dataset.k];
+ if(el.matches('input,textarea')){if(document.activeElement!==el)el.value=v||''}
+ else if(el.classList.contains('tri'))el.classList.toggle('on',!!v);
+ else if('num' in el.dataset)el.textContent=v||0})}
+function save(k,v){S[k]=v;pend[k]=v;clearTimeout(tm);tm=setTimeout(flush,500)}
+async function flush(){if(!doc)return;const p=pend;pend={};
+ try{await doc.update(p);status('')}catch(e){try{await doc.set({...S});status('')}catch(e2){status('Нет прав на запись — изменения не сохраняются')}}}
+document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k&&e.target.matches('input,textarea'))save(k,e.target.value)});
+document.addEventListener('click',e=>{
+ const t=e.target.closest('.tri');if(t){const k=t.dataset.k;save(k,!S[k]);render();return}
+ const b=e.target.closest('button[data-d]');if(b){const k=b.dataset.t;S[k]=Math.max(0,Math.min(99,(+S[k]||0)+ +b.dataset.d));save(k,S[k]);render()}});
+(async()=>{
+ try{
+  const db=await claude.use('db');
+  if(!db){status('Общее хранилище недоступно — данные не сохранятся');return}
+  doc=db.doc('sheet/main');
+  doc.onSnapshot(snap=>{const ex=typeof snap.exists==='function'?snap.exists():snap.exists;
+   if(ex){const d=typeof snap.data==='function'?snap.data():snap.data;
+    for(const k in d){if(!(k in pend))S[k]=d[k]}}
+   render()},e=>status('Ошибка загрузки данных'));
+ }catch(e){status('Общее хранилище недоступно')}
+})();
+</script>
+</body>
+</html>
