@@ -158,5 +158,91 @@ document.addEventListener('click',e=>{
  }catch(e){status('Общее хранилище недоступно')}
 })();
 </script>
+ <script>
+(function() {
+  var STORAGE_KEY = 'listpersona_autosave_v1';
+  
+  // Загружаем сохранённые данные при открытии страницы
+  function restoreData() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      var data = JSON.parse(saved);
+      
+      Object.keys(data).forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        
+        if (el.type === 'checkbox' || el.type === 'radio') {
+          el.checked = data[id];
+        } else {
+          el.value = data[id];
+        }
+      });
+      console.log('✅ Данные восстановлены');
+    } catch (e) {
+      console.warn('Ошибка восстановления:', e);
+    }
+  }
+  
+  // Сохраняем все поля
+  function saveData() {
+    try {
+      var data = {};
+      var fields = document.querySelectorAll('input, textarea, select');
+      
+      fields.forEach(function(el) {
+        if (!el.id) {
+          // Если у поля нет id — генерируем по индексу
+          el.id = 'autofield_' + Array.prototype.indexOf.call(fields, el);
+        }
+        
+        if (el.type === 'checkbox' || el.type === 'radio') {
+          data[el.id] = el.checked;
+        } else {
+          data[el.id] = el.value;
+        }
+      });
+      
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.warn('Ошибка сохранения:', e);
+    }
+  }
+  
+  // Восстанавливаем при загрузке
+  window.addEventListener('DOMContentLoaded', restoreData);
+  
+  // Сохраняем при каждом изменении (с небольшой задержкой)
+  var timer = null;
+  document.addEventListener('input', function(e) {
+    if (e.target.matches('input, textarea, select')) {
+      clearTimeout(timer);
+      timer = setTimeout(saveData, 300);
+    }
+  });
+  
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('input, textarea, select')) {
+      saveData();
+    }
+  });
+  
+  // Сохраняем перед закрытием
+  window.addEventListener('beforeunload', saveData);
+  
+  // Кнопка очистки (создаём автоматически)
+  var clearBtn = document.createElement('button');
+  clearBtn.textContent = '🗑 Очистить всё';
+  clearBtn.style.cssText = 'position:fixed;bottom:12px;right:12px;padding:8px 14px;background:#4a2c1a;color:#d4af37;border:1px solid #d4af37;border-radius:4px;cursor:pointer;font-size:12px;z-index:9999;font-family:inherit;';
+  clearBtn.addEventListener('click', function() {
+    if (confirm('Удалить все сохранённые данные?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+  });
+  document.body.appendChild(clearBtn);
+})();
+</script>
 </body>
 </html>
